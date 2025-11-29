@@ -7,7 +7,7 @@ export default function GenreMovieList(){
             <div className="p-8 px-8 md:px-16" >
                 <h2 className="text-[20px] 
                 font-bold text-white">{item.name}</h2>
-                <MovieList/>   
+                <MovieList genreId={item.id}/>   
             </div>    
         ))}
     </div>;
