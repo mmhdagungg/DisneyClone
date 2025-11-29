@@ -8,12 +8,12 @@ const getTrendingVideos = () => {
         movieBaseUrl + '/trending/all/day?api_key=' + apiKey
     );
 }
-const getMoviesByGenre = (genreId) => {
+const getMovieByGenreId = (genreId) => {
     return axios.get(
          movieByGenreBaseUrl + '?api_key=' + apiKey + '&with_genres=' + genreId
     )
 }
 export default {
     getTrendingVideos,
-    getMoviesByGenre
+    getMovieByGenreId
 }
