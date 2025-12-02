@@ -1,8 +1,9 @@
 import GlobalAPI from "../Services/GlobalAPI.js";
+import HrMovieCard from "./HrMovieCard.jsx";
 import { useEffect, useState, useRef } from "react";
 import MovieCard from "./MovieCard.jsx";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-export default function MovieList({ genreId }) {
+export default function MovieList({ genreId, index_ }) {
   const [movieList, setMovieList] = useState([]);
   const elementRef = useRef();
   useEffect(() => {
@@ -11,7 +12,6 @@ export default function MovieList({ genreId }) {
 
   const getMovieByGenreId = () => {
     GlobalAPI.getMovieByGenreId(genreId).then((resp) => {
-      // console.log(resp.data.results)
       setMovieList(resp.data.results);
     });
   };
@@ -41,7 +41,13 @@ export default function MovieList({ genreId }) {
         ref={elementRef}
       >
         {movieList.map((item, index) => (
-          <MovieCard movie={item} />
+          <>
+            {index_ % 3 == 0 ? (
+              <HrMovieCard movie={item} />
+            ) : (
+              <MovieCard movie={item} />
+            )}
+          </>
         ))}
       </div>
       <IoChevronForwardOutline
