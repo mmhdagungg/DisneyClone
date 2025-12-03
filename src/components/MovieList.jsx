@@ -5,7 +5,7 @@ import MovieCard from "./MovieCard.jsx";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 export default function MovieList({ genreId, index_ }) {
   const [movieList, setMovieList] = useState([]);
-  const elementRef = useRef();
+  const elementRef = useRef(null);
   useEffect(() => {
     getMovieByGenreId();
   }, []);
