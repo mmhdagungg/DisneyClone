@@ -32,8 +32,8 @@ export default function MovieList({ genreId, index_ }) {
     <div className="relative">
       <IoChevronBackOutline
         onClick={slideLeft}
-        className="text-[50px] text-white p-2 z-10 cursor-pointer
-        hidden md:block absolute mt-[150px]"
+        className={`text-[50px] text-white p-2 z-10 cursor-pointer hidden 
+          md:block absolute ${index_ % 3 == 0 ? "mt-[75px]" : "mt-[150px]"}`}
       />
       <div
         className="flex overflow-x-auto gap-8 scrollbar-hide
@@ -52,8 +52,10 @@ export default function MovieList({ genreId, index_ }) {
       </div>
       <IoChevronForwardOutline
         onClick={slideRight}
-        className="text-[50px] text-white hidden md:block p-2 z-10 top-0
-         absolute mt-[150px] right-0 cursor-pointer"
+        className={`text-[50px] text-white hidden md:block p-2 z-10 top-0
+         absolute ${
+           index_ % 3 == 0 ? "mt-[75px]" : "mt-[150px]"
+         } right-0 cursor-pointer`}
       />
     </div>
   );
